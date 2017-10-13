@@ -333,7 +333,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
     
         <section id="comments">
-	<div id="commentContainer"></div>
+    <div id="gitalk-container"></div>
 </section>
     
 
@@ -496,20 +496,21 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 </footer>
         
     
-	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 	<script>
-		var gitment = new Gitment({
-			owner: '9960612',
-			repo: 'https://github.com/vonlyinno/hexo.git',
-			oauth: {
-				client_id: '781acbecce9685ce836c',
-				client_secret: '08e52ef6464d7541ba1eec704bd8b70b43858c37',
-			},
-		})
-		gitment.render('commentContainer')
+		var gitalk = new Gitalk({
+          clientID:  '781acbecce9685ce836c',
+          clientSecret: '08e52ef6464d7541ba1eec704bd8b70b43858c37',
+          repo: 'hexo',
+		  id: window.location.pathname,
+          owner: 'vonlyinno',
+          admin: 'vonlyinno',
+		  distractionFreeMode: 'true',
+     })
+    gitalk.render('gitalk-container')
 	</script>
-	
+
 
 
 
