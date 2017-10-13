@@ -272,8 +272,6 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="https://vonlyinno.github.io/about/index.html#comments" class="article-comment-link">评论</a>
-    
 
         </footer>
     </div>
@@ -287,7 +285,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
     
         <section id="comments">
-    <div id="uyan_frame"></div>
+	<div id="commentContainer"></div>
 </section>
     
 
@@ -450,8 +448,20 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 </footer>
         
     
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2146383"></script>
-
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			owner: '9960612',
+			repo: 'https://github.com/vonlyinno/hexo.git',
+			oauth: {
+				client_id: '781acbecce9685ce836c',
+				client_secret: '08e52ef6464d7541ba1eec704bd8b70b43858c37',
+			},
+		})
+		gitment.render('commentContainer')
+	</script>
+	
 
 
 
