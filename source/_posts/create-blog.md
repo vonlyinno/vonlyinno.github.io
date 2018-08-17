@@ -1,12 +1,19 @@
 ---
-title: Github pages & Hexo, 博客初体验
+title: Github pages & Hexo, 博客构建
 date: 2017-03-29 17:18:05
 categories: 技能养成
-tags: 新技能 博客搭建
+tags: 
+  - 新技能 
+  - 博客搭建
 ---
 
+
 博客已经搭起来一阵了，终于动手写这篇<小白搭建指南>了。
-懒癌晚期患者实在是懒得折腾服务器来搭建博客，就越省事越好，所以选择了github pages。
+懒癌晚期患者实在是懒得折腾服务器来搭建博客，就越省事越好，所以选择了github pages
+
+
+> Tips: 2018.07.11 更新: 合并blog源码和编译后代码的github仓库
+
 
 ##### 什么是github pages
 [GitHub Pages](https://pages.github.com/) 本用于介绍托管在GitHub的项目，不过，由于他的空间免费稳定，用来做搭建一个博客再好不过了。
@@ -131,7 +138,7 @@ hexo s
 这个很简单啊，下面的命令就会在 \hexo\source\_posts目录下创建一个myblog.md文件
 ```
 hexo new myblog
-```
+```·
 
 ###### [Hexo常用命令](https://hexo.io/zh-cn/docs/commands.html)
 ```
@@ -154,3 +161,58 @@ hexo d == hexo deploy
 
 最后附上[Hexo官方文档](https://hexo.io/zh-cn/docs/)，多读官方文档，有益身心健康。
 See you.
+
+
+##### 2018.07.11 更新：合并仓库
+博客的github仓库管理改过好几遍，由于最初学习不到位，没有考虑过换电脑或者源码迁移备份之类的问题。后来经过更改，是将源码和编译后的blog代码分别放在了两个仓库，可以使用没问题，但是还是放在一个仓库，使用不同分支更好。
+把步骤甩出来：
+
+1.准备：我有两个仓库，源码hexo, blog代码vonlyinno
+2.将vonlyinno仓库克隆到本地vonlyinno文件夹
+```
+git clone git@github.com:vonlyinno/vonlyinno.github.io.git ./vonlyinno
+```
+创建hexo分支，并设为默认分支
+```
+git checkout -b hexo
+```
+可以查看当前已经在hexo分支了
+```
+git branch
+```
+3.将hexo的内容拷贝进hexo分支。我是先吧hexo给clone下来，再将需要的文件复制进来。
+> 需要的文件：
+>  * scaffolds
+>  * source
+>  * themes
+>  * .gitignore
+>  * _config.yml
+>  * package.json
+>  * readme.md
+注意，需要把themes里的.git目录删除。
+(也可以把hexo分支里原本的编译后的blog文件删掉)
+
+我的长这样：
+hexo分支
+<img src="/images/create_blog1.png" alt="hexo分支">
+
+master分支
+<img src="/images/create_blog2.png" alt="master分支">
+
+4. 提交更新
+```
+git add --all
+git commit -m '合并仓库'
+git push --set-upstream origin hexo //只用git push的话会提示用这条命令
+```
+5. 发布
+```
+hexo g -d
+```
+如果报错的话，先执行hexo clean试一下。
+6. 更换电脑
+如果之后更换了电脑，执行clone下这个仓库
+```
+npm install
+```
+就可以正常使用啦！
