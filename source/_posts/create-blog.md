@@ -138,7 +138,7 @@ hexo s
 这个很简单啊，下面的命令就会在 \hexo\source\_posts目录下创建一个myblog.md文件
 ```
 hexo new myblog
-```
+```·
 
 ###### [Hexo常用命令](https://hexo.io/zh-cn/docs/commands.html)
 ```
