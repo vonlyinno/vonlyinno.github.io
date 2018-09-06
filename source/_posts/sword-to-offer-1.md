@@ -14,7 +14,7 @@ tags: 剑指offer
 **代码**
 -  暴力方式，全部遍历
 <!--more-->
-```
+```javascript
 function Find(target, array)
 {
     for(var i=0;i<array.length;i++){
@@ -29,7 +29,7 @@ function Find(target, array)
 - 利用二维数组由上到下，由左到右递增的规律，那么选取右上角或者左下角的元素a[row][col]与target进行比较，
 当target小于元素a[row][col]时，那么target必定在元素a所在行的左边,即col--；
 当target大于元素a[row][col]时，那么target必定在元素a所在列的下边,即row++；
-```
+```javascript
 function Find(target, array){
     var row = 0;
     var col = array[0].length-1;
@@ -51,14 +51,14 @@ function Find(target, array){
 
 **代码**
 -使用replace（估计题目不是考这个）
-```
+```javascript
 function replaceSpace(str)
 {
     return  str.replace(/\s/g,'%20');
 }
 ```
 -使用split + join
-```
+```javascript
 function replaceSpace(str)
 {
     return str.split(' ').join('%20');
@@ -70,7 +70,7 @@ function replaceSpace(str)
 输入一个链表，从尾到头打印链表每个节点的值。
 
 **代码**
-```
+```javascript
 /*function ListNode(x){
     this.val = x;
     this.next = null;
@@ -93,7 +93,7 @@ function printListFromTailToHead(head)
 输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
 
 **代码**
-```
+```javascript
 /* function TreeNode(x) {
     this.val = x;
     this.left = null;
@@ -124,7 +124,7 @@ function reConstructBinaryTree(pre, vin)
 出队时，判断s2是否为空，如不为空，则直接弹出顶元素；如为空，则将s1的元素逐个“倒入”s2，把最后一个元素弹出并出队。
 
 **代码**
-```
+```javascript
 function Stack(){
     var arr = [];
     this.push = function(node){
@@ -169,7 +169,7 @@ NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
 中间元素若小于最后一个元素，则最小值位于左半边（含中间元素）。
 
 **代码**
-```
+```javascript
 function minNumberInRotateArray(rotateArray)
 {
     var low = 0;
@@ -198,7 +198,7 @@ n<=39
 经[测试](http://www.jianshu.com/p/0b32ce736c24)，如果用递归的写法会超出时间限制的
 
 **代码** 
-```
+```javascript
 function Fibonacci(n)
 {
     var aaa = [];
@@ -229,7 +229,7 @@ f(n) =     | 2, (n=2)
 ```
 
 **代码** 
-```
+```javascript
 function jumpFloor(number)
 {   
     var arr = [];
@@ -257,7 +257,7 @@ function jumpFloor(number)
 所以f(n)=f(n-1)+f(n-2)+...+f(1)，因为f(n-1)=f(n-2)+f(n-3)+...+f(1)，所以f(n)=2*f(n-1)
 
   **代码** 
-  ```
+  ```javascript
   function jumpFloorII(number)
   {
     var arr = [];
@@ -304,7 +304,7 @@ d. number = n 分为两步考虑：
               因为，摆放了一块1\*2的小矩阵，对应下方的1\*2摆放方法就确定了，所以为f(number-2)
 
   **代码** 
-```
+```javascript
 function rectCover(number)
 {
   var arr = [];

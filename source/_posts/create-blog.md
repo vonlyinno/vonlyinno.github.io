@@ -52,24 +52,24 @@ Tips : [个人感觉] 这个的好处就是项目可以完全留在本地，毕�
 3. hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，一个是各个theme下的；
 
 ###### 安装
-```
+```bash
 npm install -g hexo-cli
 ```
 安装好后，也通过查看版本，测试是否安装成功
-```
+```bash
 hexo version
 ```
 进入刚clone的hexo文件夹，初始化
-```
+```bash
 cd hexo
 hexo init
 ```
 安装依赖
-```
+```bash
 npm install
 ```
 生成&启动，可以在http://localhost:4000/ 查看本地效果
-```
+```bash
 hexo g  // 或者hexo generate
 hexo s  // 或者hexo server，
 ```
@@ -77,7 +77,7 @@ hexo s  // 或者hexo server，
 1. 执行hexo server提示找不到该指令
 解决办法：
 在Hexo 3.0 后server被单独出来了，需要安装server，安装的命令如下：
-```
+```bash
 npm install hexo -server --save
 ```
 
@@ -96,23 +96,23 @@ npm install hexo -server --save
 ```
 ###### [部署到github上](https://hexo.io/zh-cn/docs/deployment.html)
 配置后就可以同步你的文章到github上了。配置deployer，根目录下的全局的_config.yml文件中，请确保每个deployer的缩进长度相同，并且使用空格缩进。
-```
+```bash
 deploy:
   type: git
   repo: git@github.com:yourname/yourname.github.io.git
   branch: master
 ```
 安装 hexo-deployer-git
-```
+```bash
 npm install hexo-deployer-git --save
 ```
 然后在当前目录打开命令行，输入：
-```
+```bash
 hexo g
 hexo d
 ```
 或者
-```
+```bash
 hexo g -d
 ```
 执行完之后会让你输入github的账号和密码，输入完后就可以登录我们自己的部署在Github Pages服务器上的博客了。
@@ -121,27 +121,27 @@ hexo g -d
 Hexo的主题确实让博客变美了很多，很多开发者也贡献了自己的主题，可以从[官网-主题](https://hexo.io/themes/)瞧一瞧看一看，此处也特别鸣谢一下我博客的[主题开发者](https://github.com/ppoffice)。
 
 下载主题
-```
+```bash
 git clone https://github.com/ppoffice/hexo-theme-icarus.git //主题的地址
 ```
 配置全局站点文件_config.yml
-```
+```bash
 themes: icarus //主题文件夹名
 ```
 部署主题，查看效果
-```
+```bash
 hexo g
 hexo s
 ```
 主题里有很多配置项，主题太多就不赘述了，还是去看主题文档吧。
 ###### [写文章](https://hexo.io/zh-cn/docs/writing.html)
 这个很简单啊，下面的命令就会在 \hexo\source\_posts目录下创建一个myblog.md文件
-```
+```bash
 hexo new myblog
 ```·
 
 ###### [Hexo常用命令](https://hexo.io/zh-cn/docs/commands.html)
-```
+```bash
 hexo help //查看帮助
 hexo init //初始化目录
 hexo new "postName" //新建文章
@@ -169,15 +169,15 @@ See you.
 
 1.准备：我有两个仓库，源码hexo, blog代码vonlyinno
 2.将vonlyinno仓库克隆到本地vonlyinno文件夹
-```
+```bash
 git clone git@github.com:vonlyinno/vonlyinno.github.io.git ./vonlyinno
 ```
 创建hexo分支，并设为默认分支
-```
+```bash
 git checkout -b hexo
 ```
 可以查看当前已经在hexo分支了
-```
+```bash
 git branch
 ```
 3.将hexo的内容拷贝进hexo分支。我是先吧hexo给clone下来，再将需要的文件复制进来。
@@ -200,19 +200,19 @@ master分支
 <img src="/images/create_blog2.png" alt="master分支">
 
 4. 提交更新
-```
+```bash
 git add --all
 git commit -m '合并仓库'
 git push --set-upstream origin hexo //只用git push的话会提示用这条命令
 ```
 5. 发布
-```
+```bash
 hexo g -d
 ```
 如果报错的话，先执行hexo clean试一下。
 6. 更换电脑
 如果之后更换了电脑，执行clone下这个仓库
-```
+```bash
 npm install
 ```
 就可以正常使用啦！

@@ -19,6 +19,8 @@ tags:
 
 步骤就不说了，总结一下跟着做的过程遇到的坑吧，有些可能因为版本更新之类的原因,总之也对版本之间的差别有了更多的了解。
 
+<!--more-->
+
 主要版本：
 ```
 "koa": "^2.5.1",
@@ -27,7 +29,7 @@ tags:
 
 #### 安装vue-cli
 安装过程报错
-```
+```bash
 PS E:\front\learn_project> npm install -g vue-cli
 npm WARN deprecated coffee-script@1.12.7: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
 npm ERR! Unexpected end of JSON input while parsing near '...027241519e787343df782'
@@ -36,22 +38,22 @@ npm ERR! A complete log of this run can be found in:
 npm ERR!     C:\Users\hetutu\AppData\Roaming\npm-cache\_logs\2018-07-04T11_20_18_301Z-debug.log
 ```
 解决方法：
-```
+```bash
 npm cache clean --force
 ```
 
 #### 使用sequelize-auto
 在使用sequelize-auto自动生成model的时候，报错
-```
+```bash
 npm install --save sequelize mysql
 npm install -g sequelize-auto
 ```
 执行
-```
+```bash
 sequelize-auto -o "./schema" -d todolist -h 127.0.0.1 -u root -p 3306 -e mysql -x ht19931007
 ```
 主要错误信息：
-```
+```bash
 name: 'SequelizeConnectionError',
   message:
    'ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client',
@@ -73,7 +75,7 @@ flush privileges;
 
 #### this or ctx
 原文的中间件获取上下文都是用的this,比如：
-```
+```javascript
 const getUserInfo = function* (){
   const id = this.params.id; 
   const result = yield user.getUserById(id);  
@@ -81,7 +83,7 @@ const getUserInfo = function* (){
 }
 ```
 但是我的版本里this获取不到数据，需要用ctx
-```
+```javascript
 const getUserInfo = async function (ctx){
   const id = ctx.params.id; 
   const result = await user.getUserById(id);  
@@ -91,11 +93,11 @@ const getUserInfo = async function (ctx){
 
 #### axios.delete
 删除todolist我用的是axios.delete(),比如:
-```
+```javascript
 axios.delete('/api',{id:1})
 ```
 但是后台就是接收不到数据，原来delete第二个参数是 config ，所以要通过 config 里面的 data 来传参：
-```
+```javascript
 axios.delete('/api',{data:{id:1}})
 ```
 
